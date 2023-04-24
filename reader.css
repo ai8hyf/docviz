@@ -3,7 +3,7 @@ body {
 	font-family: 'Droid Serif', serif;
   }
 
-  .page-header{
+  .page-header, .welcome-header{
 	font-family: 'Playfair Display', serif;
     font-weight: 900;
     font-size: 64px;
@@ -15,7 +15,7 @@ body {
 	margin-top: 20px;
   }
 
-  .page-subtitle{
+  .page-subtitle, .welcome-subtitle{
 	font-weight: 700;
     font-size: 12px;
     box-sizing: border-box;
@@ -45,6 +45,32 @@ body {
 	font-size: 2rem;
   }
 
+  .one-doc{
+	font-size: 50%;
+	text-align: justify;
+	cursor: pointer;
+	padding: 15px;
+	border: 1px solid black
+  }
+
+  .one-doc:hover{
+	opacity: 0.7;
+	background-color: rgba(0,0,0,0.3);
+  }
+  
+	.doc-content{
+		height: 250px;
+		max-height: 250px;
+		overflow: hidden;
+	}
+
+	.doc-title{
+		font-weight: 700;
+    	font-size: 12px;
+		margin-top: 15px;
+		width: 100%;
+		text-align: center;
+	}
   #parsed-sentences-container{
 	line-height: 2;
   }

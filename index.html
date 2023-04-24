@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Reader</title>
-	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link
+		href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic|Droid+Serif:400,700,400italic,700italic'
+		rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,7 +30,7 @@
 				<div class="page-header">
 					Document Analyzed
 				</div>
-	
+
 				<div class="page-subtitle">Results provided by GPT-4</div>
 			</div>
 
@@ -37,8 +39,10 @@
 				<div class="row justify-content-center mb-3">
 					<div class="col-12">
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-outline-secondary" id="show-quotes">Highlight Quotes</button>
-							<button type="button" class="btn btn-outline-secondary" id="show-line-by-line">View Line by Line</button>
+							<button type="button" class="btn btn-outline-secondary" id="show-quotes">Highlight
+								Quotes</button>
+							<button type="button" class="btn btn-outline-secondary" id="show-line-by-line">View Line by
+								Line</button>
 						</div>
 					</div>
 				</div>
@@ -49,41 +53,102 @@
 			</div>
 
 			<div class="col-lg-3" id="control-area">
-				<button type="button" class="btn btn-outline-link" id="show-fact-opinion">Facts Vs. Opinions <i class="fa-solid fa-plus"></i></button>
+				<button type="button" class="btn btn-outline-link" id="show-fact-opinion">Facts Vs. Opinions <i
+						class="fa-solid fa-plus"></i></button>
 				<div id="graph-for-fact-opinion"></div>
 
 				<hr class="mx-2 my-1">
 
-				<button type="button" class="btn btn-outline-link" id="show-names">Highlight Names <i class="fa-solid fa-plus"></i></button>
+				<button type="button" class="btn btn-outline-link" id="show-names">Highlight Names <i
+						class="fa-solid fa-plus"></i></button>
 				<div id="graph-for-name"></div>
 
 				<hr class="mx-2 my-1">
 
-				<button type="button" class="btn btn-outline-link" id="show-sentiment">Show Sentiment <i class="fa-solid fa-plus"></i></button>
+				<button type="button" class="btn btn-outline-link" id="show-sentiment">Show Sentiment <i
+						class="fa-solid fa-plus"></i></button>
 				<div id="graph-for-sentiment"></div>
 
 				<hr class="mx-2 my-1">
 
-				<button type="button" class="btn btn-outline-link" id="show-frequent-word">Show Most Frequent Words <i class="fa-solid fa-plus"></i></button>
+				<button type="button" class="btn btn-outline-link" id="show-frequent-word">Show Most Frequent Words <i
+						class="fa-solid fa-plus"></i></button>
 				<div id="graph-for-frequent-word"></div>
 			</div>
-			
+
 		</div>
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js"
-		integrity="sha512-2bMhOkE/ACz21dJT8zBOMgMecNxx0d37NND803ExktKiKdSzdwn+L7i9fdccw/3V06gM/DBWKbYmQvKMdAA9Nw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-		integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<div class="modal" id="welcome-modal" tabindex="-1">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content" style="height: 100vh; display: flex; justify-content: center; padding: 0 20px;">
+				<div class="paperOverlay"></div>
+
+				<div class="welcome-header" style="margin-top: 0;">
+					DocViz Demo
+				</div>
+
+				<div class="welcome-subtitle">Please Choose a Sample Article Below</div>
+
+				<div class="row justify-content-center">
+					<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6">
+						<div class="one-doc" onclick="showArticle(1)">
+							<div class="doc-content">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula, nulla eget finibus dignissim, odio eros accumsan lectus, sed sodales ipsum magna ut sem. Nullam placerat diam sapien, vel venenatis velit molestie sed. Phasellus consequat nisl nibh, vel lobortis nulla sollicitudin vel. Aenean auctor viverra nunc nec dictum. Vivamus egestas non velit id malesuada. Sed posuere dictum interdum. Pellentesque congue fermentum posuere. Donec non magna vitae arcu efficitur posuere. Aenean venenatis, nunc ac aliquet pulvinar, tortor nunc mattis velit, eu eleifend magna enim vel tortor. Quisque hendrerit est eu vestibulum iaculis. Sed a dapibus tellus. Integer facilisis dignissim felis et rutrum. Maecenas elit eros, sollicitudin quis justo eget, vulputate dictum lacus.
+
+								Sed ex diam, porta vitae pulvinar nec, viverra at ipsum. Vivamus porta sem vitae ipsum sodales accumsan. Donec at sapien id ligula tempor interdum eget id libero. Fusce sed orci porta, fringilla justo id, consectetur leo. Phasellus metus purus, volutpat et eros vitae, porttitor cursus sapien. In vitae ante ultrices, efficitur nisi sed, volutpat quam. Nam placerat vestibulum lectus, id consectetur orci auctor faucibus. Morbi elementum et lorem a ornare.
+
+								Nam lacus velit, venenatis nec suscipit non, faucibus id libero. In suscipit, diam a maximus aliquam, risus ante elementum enim, vitae lacinia risus quam eu nisi. Vestibulum cursus diam quis varius lobortis. Vivamus dui arcu, tincidunt id ullamcorper eu, placerat et risus. Suspendisse nisi tortor, maximus ac tellus vitae, suscipit vestibulum nisi. Ut venenatis et ipsum vel rutrum. Phasellus rhoncus placerat faucibus. Maecenas eu lorem eget ipsum venenatis consectetur quis non urna. Integer consectetur sapien eu erat porta mollis.
+
+								Sed pretium dignissim sodales. Etiam ex lectus, vestibulum at tristique ac, placerat vel lectus. Nunc felis velit, sodales vitae nunc porta, aliquam vestibulum nunc. Vestibulum tempor diam ac nibh euismod laoreet. In erat eros, gravida eget viverra cursus, blandit vel enim. Cras sit amet volutpat dolor. In nec feugiat ex. Pellentesque vitae molestie arcu. Quisque leo lorem, fringilla vitae pulvinar id, ultricies id elit. Fusce pulvinar sodales purus eget dignissim. Duis a nisl ligula. Aenean sollicitudin, tortor dapibus porttitor porta, eros eros placerat elit, sit amet feugiat magna elit at tellus. Nullam ut lobortis dolor. Pellentesque non est porta, luctus est vitae, venenatis felis.
+
+								Morbi feugiat dapibus maximus. Mauris quis mauris nec purus consequat efficitur vitae viverra dolor. Nulla massa neque, scelerisque eget erat ac, molestie tincidunt ante. Praesent tristique, nisi eu tempus facilisis, est ipsum fermentum nisl, id blandit odio sem quis nibh. Proin mattis arcu sed dolor mollis accumsan. Maecenas interdum in nisi eleifend porta. Phasellus volutpat vestibulum rutrum. Suspendisse hendrerit mauris nisl, ac rhoncus tellus laoreet ut. Nullam eu lectus eget tellus posuere ullamcorper at id nulla. Aenean iaculis ut dolor at porttitor. Nulla consectetur arcu ac augue dapibus ullamcorper. Praesent ac posuere purus. Mauris a ipsum dolor. Nulla ligula enim, tempor at convallis sed, tempor quis turpis.
+							</div>
+
+							<div class="doc-title">
+								Article #1
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="col-xl-2 col-lg-3 col-md-3 col-sm-6">
+						<div class="one-doc" onclick="showArticle(2)">
+							<div class="doc-content">
+								 iaculis. Sed a dapibus tellus. Integer facilisis dignissim felis et rutrum. Maecenas elit eros, sollicitudin quis justo eget, vulputate dictum lacus.
+
+								Sed ex diam, porta vitae pulvinar nec, viverra at ipsum. Vivamus porta sem vitae ipsum sodales accumsan. Donec at sapien id ligula tempor interdum eget id libero. Fusce sed orci porta, fringilla justo id, consectetur leo. Phasellus metus purus, volutpat et eros vitae, porttitor cursus sapien. In vitae ante ultrices, efficitur nisi sed, volutpat quam. Nam placerat vestibulum lectus, id consectetur orci auctor faucibus. Morbi elementum et lorem a ornare.
+
+								Nam lacus velit, venenatis nec suscipit non, faucibus id libero. In suscipit, diam a maximus aliquam, risus ante elementum enim, vitae lacinia risus quam eu nisi. Vestibulum cursus diam quis varius lobortis. Vivamus dui arcu, tincidunt id ullamcorper eu, placerat et risus. Suspendisse nisi tortor, maximus ac tellus vitae, suscipit vestibulum nisi. Ut venenatis et ipsum vel rutrum. Phasellus rhoncus placerat faucibus. Maecenas eu lorem eget ipsum venenatis consectetur quis non urna. Integer consectetur sapien eu erat porta mollis.
+
+								Sed pretium dignissim sodales. Etiam ex lectus, vestibulum at tristique ac, placerat vel lectus. Nunc felis velit, sodales vitae nunc porta, aliquam vestibulum nunc. Vestibulum tempor diam ac nibh euismod laoreet. In erat eros, gravida eget viverra cursus, blandit vel enim. Cras sit amet volutpat dolor. In nec feugiat ex. Pellentesque vitae molestie arcu. Quisque leo lorem, fringilla vitae pulvinar id, ultricies id elit. Fusce pulvinar sodales purus eget dignissim. Duis a nisl ligula. Aenean sollicitudin, tortor dapibus porttitor porta, eros eros placerat elit, sit amet feugiat magna elit at tellus. Nullam ut lobortis dolor. Pellentesque non est porta, luctus est vitae, venenatis felis.
+
+								Morbi feugiat dapibus maximus. Mauris quis mauris nec purus consequat efficitur vitae viverra dolor. Nulla massa neque, scelerisque eget erat ac, molestie tincidunt ante. Praesent tristique, nisi eu tempus facilisis, est ipsum fermentum nisl, id blandit odio sem quis nibh. Proin mattis arcu sed dolor mollis accumsan. Maecenas interdum in nisi eleifend porta. Phasellus volutpat vestibulum rutrum. Suspendisse hendrerit mauris nisl, ac rhoncus tellus laoreet ut. Nullam eu lectus eget tellus posuere ullamcorper at id nulla. Aenean iaculis ut dolor at porttitor. Nulla consectetur arcu ac augue dapibus ullamcorper. Praesent ac posuere purus. Mauris a ipsum dolor. Nulla ligula enim, tempor at convallis sed, tempor quis turpis.
+							</div>
+
+							<div class="doc-title">
+								Article #2
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
 		integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+		integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+		integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="./articles.js"></script>
 	<script src="./reader.js"></script>
 </body>

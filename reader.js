@@ -148,10 +148,32 @@
 // 	}
 // ]
 
-let sampleArticle = article2['article']
-let sampleAnalysis = article2['analysis']
+const myModal = new bootstrap.Modal(document.getElementById('welcome-modal'))
+  
+myModal.show();
 
-console.log(sampleArticle.length)
+let sampleArticle
+let sampleAnalysis
+let sampleParsedArticle
+
+function showArticle(num){
+	if(num == 1){
+		sampleArticle = article1['article']
+		sampleAnalysis = article1['analysis']
+	}else{
+		sampleArticle = article2['article']
+		sampleAnalysis = article2['analysis']
+	}
+	myModal.hide();
+
+	sampleParsedArticle = parseArticle(sampleArticle, sampleAnalysis);
+
+	displayParsedArticle(sampleParsedArticle)	
+
+	setHeight()
+}
+
+
 
 // function to parse the article and return an array of objects
 function parseArticle(article, analysis) {
@@ -185,7 +207,6 @@ function parseArticle(article, analysis) {
 	return parsedArticle;
 }
 
-let sampleParsedArticle = parseArticle(sampleArticle, sampleAnalysis);
 
 // global variable to store the toggles
 let showFactOpinion = false;
@@ -244,7 +265,6 @@ function displayParsedArticle(parsedArticle) {
 	}
 }
 
-displayParsedArticle(sampleParsedArticle)
 
 $("#show-fact-opinion").click(function() {
 	// toggle the showFactOpinion variable
@@ -681,7 +701,6 @@ function setHeight(){
 	$("#main-content").css("max-height", controlAreaHeight);
 }
 
-setHeight()
 
 // extract most frequent words from the full article text
 function getMostFrequentWords(topN){
@@ -729,3 +748,4 @@ function getMostFrequentWords(topN){
 		};
 	});
 }
+
