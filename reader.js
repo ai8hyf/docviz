@@ -148,6 +148,10 @@
 // 	}
 // ]
 
+console.log("Why are you looking at the console?")
+console.log("You're not supposed to be here.")
+console.log("Go away.")
+
 const myModal = new bootstrap.Modal(document.getElementById('welcome-modal'))
   
 myModal.show();
@@ -689,8 +693,6 @@ function setHeight(){
 
 	// the div.control-area should be 100vh minus the height of the header and the subtitle
 	var controlAreaHeight = 'calc(100vh - ' + (headerHeight + subtitleHeight + 80) + 'px)';
-
-	console.log(controlAreaHeight)
 
 	// set the maxHeight of the div#control-area
 	$("#control-area").css("height", controlAreaHeight);
